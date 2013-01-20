@@ -1,0 +1,5 @@
+<%= form_for @upload, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.label :filename, :class => 'control-label' %>
+      <%= f.file_field :file, :class => 'file_field' %>
+    <%= f.submit "Upload", :class => 'btn btn-primary' %>
+<% end %>
