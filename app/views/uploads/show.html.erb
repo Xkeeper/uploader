@@ -14,9 +14,7 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              uploads_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_upload_path(@upload), :class => 'btn' %>
+              :back, :class => 'btn'  %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               upload_path(@upload),
               :method => 'delete',

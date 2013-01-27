@@ -7,6 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:filename) %></th>
+      <th><%= model_class.human_attribute_name(:file_path) %></th>
       <th><%= model_class.human_attribute_name(:upload_date) %></th>
       <th><%= model_class.human_attribute_name(:filesize) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -17,13 +18,14 @@
     <% @uploads.each do |upload| %>
       <tr>
         <td><%= link_to upload.id, upload_path(upload) %></td>
-        <td><%= upload.filename %></td>
+        <td><%= link_to upload.filename, upload.file_url %></td>
+        <td><%= upload.file_path %></td>
         <td><%= upload.upload_date %></td>
         <td><%= upload.filesize %></td>
         <td><%=l upload.created_at %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_upload_path(upload), :class => 'btn btn-mini' %>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      upload_path(upload), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       upload_path(upload),
                       :method => :delete,

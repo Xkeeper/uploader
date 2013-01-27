@@ -1,4 +1,6 @@
 Uploader::Application.routes.draw do
+
+  match 'fast_uploads/' => 'uploads#create'
   resources :uploads
 
 

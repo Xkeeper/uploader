@@ -32,21 +32,17 @@ class UploadsController < ApplicationController
     end
   end
 
-  # GET /uploads/1/edit
-  def edit
-    @upload = Upload.find(params[:id])
-  end
-
   # POST /uploads
   # POST /uploads.json
   def create
     #debugger
-    if params[:upload].blank? or not params[:upload].key?(:file)
+    if params[:upload].blank? or not params[:upload].key?(:filename)
       flash[:error] = "No file"
       redirect_to :action => "new" and return
     end
-    file_name, file_size = self.upload()
-    @upload = Upload.new(:filename => file_name, :filesize => file_size)
+    file_attrib = {}
+    file_attrib = self.upload()
+    @upload = Upload.new(file_attrib)
 
     respond_to do |format|
       if @upload.save
@@ -60,14 +56,17 @@ class UploadsController < ApplicationController
   end
 
   def upload
-    uploaded_io = params[:upload][:file]
-    orig_filename = uploaded_io.original_filename
-    file_size = 0
-    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-      file.write(uploaded_io.read)
-      file_size = file.size
-    end
-    return orig_filename, file_size
+    attribs = {}
+    attribs[:filename] = params[:upload][:filename]
+    uploaded_tmp = params[:upload][:filepath]
+    attribs[:filesize] = File.size(uploaded_tmp)
+    path_sub = 'uploaded/' + Time.now.to_date.to_s + '/'
+    path = Rails.root.join('public',path_sub).to_s
+    attribs[:file_url] = '/' + path_sub + attribs[:filename] 
+    attribs[:file_path] = path + attribs[:filename]
+    FileUtils.mkdir_p(path)
+    FileUtils.mv(uploaded_tmp, attribs[:file_path])
+    return attribs
   end
 
   # PUT /uploads/1
