@@ -1,7 +1,11 @@
 Uploader::Application.routes.draw do
 
   match 'fast_uploads/' => 'uploads#create'
-  resources :uploads
+  resources :uploads do
+    member do
+      get 'thanks'
+    end
+  end
 
 
   # The priority is based upon order of creation:

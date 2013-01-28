@@ -21,6 +21,15 @@ class UploadsController < ApplicationController
     end
   end
 
+  def thanks
+    @upload = Upload.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   # GET /uploads/new
   # GET /uploads/new.json
   def new
@@ -46,7 +55,7 @@ class UploadsController < ApplicationController
 
     respond_to do |format|
       if @upload.save
-        format.html { redirect_to @upload, notice: 'Upload was successfully created.' }
+        format.html { redirect_to thanks_upload_path(@upload) }
         format.json { render json: @upload, status: :created, location: @upload }
       else
         format.html { render action: "new" }
