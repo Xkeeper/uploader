@@ -1,6 +1,7 @@
 class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.json
+  before_filter :authenticate_admin!, :only => [:index, :show, :update, :destroy]
   def index
     @uploads = Upload.all
 

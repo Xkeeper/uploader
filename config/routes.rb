@@ -1,5 +1,9 @@
 Uploader::Application.routes.draw do
 
+  devise_for :admins do 
+    match 'login/' => "devise/sessions#new"
+  end
+
   match 'fast_uploads/' => 'uploads#create'
   resources :uploads do
     member do

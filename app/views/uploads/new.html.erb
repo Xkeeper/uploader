@@ -1,5 +1,9 @@
 <%- model_class = Upload -%>
 
+<% if admin_signed_in? %>
+	<%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>
+<% end %>
+
 <div class="row">
 	<div class="offset2 span8">
 		<%= render :partial => 'form' %>
