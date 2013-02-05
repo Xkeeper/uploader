@@ -1,11 +1,12 @@
 <%- model_class = Upload -%>
 
-<% if admin_signed_in? %>
-	<%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>
-<% end %>
-
-<div class="row">
-	<div class="offset2 span8">
-		<%= render :partial => 'form' %>
+<div class="container-narrow"
+	<div class="row">
+		<div class="span6">
+			<%= render :partial => 'form' %>
+			 <div id="upload_progress" class="progress progress-striped active hidden">
+			 	<div id="progressbar" class="bar"> </div>
+		</div>
 	</div>
 </div>
+
