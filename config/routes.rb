@@ -1,6 +1,6 @@
 Uploader::Application.routes.draw do
 
-  devise_scope :admins do 
+  devise_scope :admin do 
     match 'login/' => "devise/sessions#new"
   end
 
