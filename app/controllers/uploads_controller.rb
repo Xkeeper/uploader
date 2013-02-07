@@ -70,7 +70,8 @@ class UploadsController < ApplicationController
     attribs[:filename] = params[:upload][:filename]
     uploaded_tmp = params[:upload][:filepath]
     attribs[:filesize] = File.size(uploaded_tmp)
-    path_sub = 'uploaded/' + Time.now.to_date.to_s + '/'
+    random_dir = Digest::MD5.hexdigest(attribs[:filename] + Time.now.to_i.to_s + rand(100000).to_s)
+    path_sub = 'uploaded/' + Time.now.to_date.to_s + '/' + random_dir + '/'
     path = Rails.root.join('public',path_sub).to_s
     attribs[:file_url] = '/' + path_sub + attribs[:filename] 
     attribs[:file_path] = path + attribs[:filename]
