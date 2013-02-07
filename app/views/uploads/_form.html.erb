@@ -1,5 +1,6 @@
-<%= form_for @upload, :html => { :class => 'form-horizontal', :onsubmit => "openProgressBar(); return true;" }, :url => '/fast_uploads' do |f| %>
-    <%= f.label :filename, :class => 'control-label' %>
+<%= form_for @upload, :url => '/fast_uploads' do |f| %>
       <%= f.file_field :file, :class => 'file_field' %>
-    <%= f.submit "Upload", :class => 'btn btn-primary' %>
+     <div>
+    <%= f.submit "Upload!", :id => 'upload_button', :class => 'btn btn-primary btn-large' %>
+    </div>
 <% end %>
