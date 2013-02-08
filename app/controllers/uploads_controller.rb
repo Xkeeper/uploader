@@ -80,22 +80,6 @@ class UploadsController < ApplicationController
     return attribs
   end
 
-  # PUT /uploads/1
-  # PUT /uploads/1.json
-  def update
-    @upload = Upload.find(params[:id])
-
-    respond_to do |format|
-      if @upload.update_attributes(params[:upload])
-        format.html { redirect_to @upload, notice: 'Upload was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @upload.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /uploads/1
   # DELETE /uploads/1.json
   def destroy
