@@ -4,8 +4,9 @@ one:
   filename: MyString
   upload_date: 2013-01-19 16:00:45
   filesize: 1
+  file_path: "#{Rails.root}/test/fixtures/files/testfile.txt"
 
 two:
   filename: MyString
   upload_date: 2013-01-19 16:00:45
-  filesize: 1
+  file_path: "#{Rails.root}/test/fixtures/files/testfile.txt"
