@@ -6,11 +6,19 @@ $(document).ready(function() {
 		progressUrl: "/progress",
 		interval: 1000,
 		dataType: 'jsonp',
-		start: unhide
+		start: unhide,
+        complete: hide
     });
 
 });
 
 function unhide() {
+    $('#upload_button').attr('disabled','disabled');
 	$('#upload_progress').fadeIn().removeClass('hidden');
+}
+
+function hide () {
+    $('#upload_button').removeAttr('disabled');
+    $('#upload_progress').fadeOut().addClass('hidden');
+    $('#progressbar').width(0);
 }
