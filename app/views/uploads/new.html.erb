@@ -1,9 +1,6 @@
-<%- model_class = Upload -%>
-
 <% content_for(:head) do %>
 	<script src="/js/jquery.uploadProgress.js" type="text/javascript"></script>
 <% end %>
-
 <div id="container-narrow">
 	<%= render :partial => 'form' %>
 	<div id="upload_progress" class="progress progress-striped active hidden">
