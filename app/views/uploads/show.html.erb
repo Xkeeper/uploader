@@ -9,7 +9,7 @@
   <dt><strong><%= model_class.human_attribute_name(:upload_date) %>:</strong></dt>
   <dd><%= @upload.upload_date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:filesize) %>:</strong></dt>
-  <dd><%= @upload.filesize %></dd>
+  <dd><%= number_to_human_size(@upload.filesize) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:ip_address) %>:</strong></dt>
   <dd><%= @upload.ip_address %></dd>
 </dl>

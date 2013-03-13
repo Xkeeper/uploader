@@ -17,9 +17,9 @@
     <% @uploads.each do |upload| %>
       <tr>
         <td><%= link_to upload.id, upload_path(upload) %></td>
-        <td><%= link_to upload.filename, upload.file_url %></td>
+        <td><%= link_to truncate(upload.filename, :length => 80), upload.file_url %></td>
         <td><%= upload.upload_date %></td>
-        <td><%= upload.filesize %></td>
+        <td><%= number_to_human_size(upload.filesize) %></td>
         <td><%= upload.ip_address %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
