@@ -52,6 +52,7 @@ class UploadsController < ApplicationController
     end
     file_attrib = {}
     file_attrib = self.upload()
+    file_attrib[:ip_address] = request.remote_ip
     @upload = Upload.new(file_attrib)
 
     respond_to do |format|
