@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202164303) do
+ActiveRecord::Schema.define(:version => 20130313101536) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20130202164303) do
     t.datetime "updated_at",  :null => false
     t.string   "file_path"
     t.string   "file_url"
+    t.string   "ip_address"
   end
 
 end
