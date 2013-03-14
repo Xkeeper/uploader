@@ -79,7 +79,7 @@
        var action_sep = (action.lastIndexOf("?") != -1) ? "&": "?";
        $(this).attr("action", action + action_sep + "X-Progress-ID=" + uuid);
       }
-      var uploadProgress = $.browser.webkit ? progressFrame.jQuery.uploadProgress : jQuery.uploadProgress;
+      var uploadProgress =  jQuery.uploadProgress;
       options.timer = window.setInterval(function() { uploadProgress(this, options) }, options.interval);
     });
   });

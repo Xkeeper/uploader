@@ -1,5 +1,6 @@
 <%= form_for @upload, :url => '/fast_uploads' do |f| %>
-      <%= f.file_field :file, :class => 'file_field' %>
+      <input class="input-xlarge" id="file_text" type="text" placeholder="Click or Drag&amp;Drop">
+      <%= f.file_field :file, :id => 'file_input' %>
      <div>
     <%= f.submit "Upload!", :id => 'upload_button', :class => 'btn btn-primary btn-large' %>
     </div>

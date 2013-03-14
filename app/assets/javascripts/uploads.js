@@ -10,6 +10,15 @@ $(document).ready(function() {
         complete: hide
     });
 
+    $('#file_text').on('click', function(event) {
+        $('#file_input').trigger('click');
+    });
+    $('#file_input').on('change', function(event) {
+        var file_path = $(this).val();
+        file_path = file_path.replace(/^.*[\/\\]/, "");
+        $('#file_text').val(file_path);
+    })
+
 });
 
 function unhide() {
